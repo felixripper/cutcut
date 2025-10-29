@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { OnchainKitProvider } from '@coinbase/onchainkit';
 import { base } from 'viem/chains';
-import { Wallet, Identity } from '@coinbase/onchainkit/wallet';
+import { Wallet } from '@coinbase/onchainkit/wallet';
+import { Identity } from '@coinbase/onchainkit/identity';
 import { Transaction } from '@coinbase/onchainkit/transaction';
-import { Mint } from '@coinbase/onchainkit/mint';
 import Game from './Game';
 import './App.css'
 
@@ -44,14 +44,6 @@ function App() {
           <div className="menu">
             <h1>Oyun Bitti!</h1>
             <p>Skorun: {score}</p>
-            {score > 50 && (
-              <Mint
-                contractAddress="0x..." // Placeholder, add NFT contract
-                onSuccess={() => alert('NFT kazandın!')}
-              >
-                <button className="start-btn">NFT Kazan</button>
-              </Mint>
-            )}
             <Transaction
               calls={[]} // Placeholder, later add contract call
               onSuccess={() => alert('Puan kaydedildi!')}
