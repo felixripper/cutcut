@@ -7,8 +7,7 @@
   "components": [
     "Wallet",
     "Identity",
-    "Transaction",
-    "Mint"
+    "Transaction"
   ],
   "chain": "base",
   "author": "felixripper",
