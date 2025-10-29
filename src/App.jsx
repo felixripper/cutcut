@@ -4,6 +4,7 @@ import { base } from 'viem/chains';
 import { Wallet } from '@coinbase/onchainkit/wallet';
 import { Identity } from '@coinbase/onchainkit/identity';
 import { Transaction } from '@coinbase/onchainkit/transaction';
+import { encodeFunctionData } from 'viem';
 import Game from './Game';
 import './App.css'
 import AdminPanel from './AdminPanel';
@@ -50,10 +51,14 @@ function App() {
               <div className="App">
                 <h2>Oyun Bitti! Skor: {score}</h2>
                 <Transaction
-                  address="0x4caA73f2D477B38795e8b6f9A7FB4ed493882684"
-                  abi={[{"inputs":[{"internalType":"uint256","name":"score","type":"uint256"}],"name":"saveScore","outputs":[],"stateMutability":"nonpayable","type":"function"}]}
-                  functionName="saveScore"
-                  args={[score]}
+                  calls={[{
+                    to: '0x4caA73f2D477B38795e8b6f9A7FB4ed493882684',
+                    data: encodeFunctionData({
+                      abi: [{"inputs":[{"internalType":"uint256","name":"score","type":"uint256"}],"name":"saveScore","outputs":[],"stateMutability":"nonpayable","type":"function"}],
+                      functionName: 'saveScore',
+                      args: [score]
+                    })
+                  }]}
                 >
                   Skoru Kaydet
                 </Transaction>
