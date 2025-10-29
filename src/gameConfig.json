@@ -1,0 +1,217 @@
+      {
+        "colors": {
+          "background": "#0000b5",
+          "rope": "#ffffff",
+          "capsule": "#ffd166",
+          "capsuleOutline": "#ff9f1c",
+          "safeZone": "#2dd4bf",
+          "safeCore": "#f5ec00",
+          "danger": "#ff4444",
+          "slice": "#f5ec00",
+          "particles": "#f5ec00",
+          "ui": "#eaf2ff"
+        },
+        "player": {
+          "lives": 3,
+          "perfectRadius": 13,
+          "chainMultiplier": 0.75
+        },
+        "gameplay": {
+          "gravity": 1400,
+          "wind": 0,
+          "friction": 0.01,
+          "sliceLifetimeMs": 180,
+          "sliceWidth": 3,
+          "capsuleRadius": 14
+        },
+        "enemy": {
+          "laserPeriodMs": 1950,
+          "magnetStrength": 190
+        },
+        "obstacle": {
+          "spikeHeight": 25,
+          "movingPlatformSpeed": 117
+        },
+        "ui": {
+          "particles": true,
+          "haptics": true,
+          "guide": true
+        },
+        "difficulty": "normal",
+        "leveling": {
+          "safeZoneBase": 80,
+          "safeZoneShrinkPerLevel": 4,
+          "capsuleCountStart": 1,
+          "capsuleCountEvery": 3
+        },
+        "_meta": {
+          "colors.background": {
+            "type": "color",
+            "label": "Arkaplan Rengi"
+          },
+          "colors.rope": {
+            "type": "color",
+            "label": "İp Rengi"
+          },
+          "colors.capsule": {
+            "type": "color",
+            "label": "Kapsül Rengi"
+          },
+          "colors.capsuleOutline": {
+            "type": "color",
+            "label": "Kapsül Dış Çizgi"
+          },
+          "colors.safeZone": {
+            "type": "color",
+            "label": "Güvenli Bölge"
+          },
+          "colors.safeCore": {
+            "type": "color",
+            "label": "Mükemmel Çekirdek"
+          },
+          "colors.danger": {
+            "type": "color",
+            "label": "Tehlike"
+          },
+          "colors.slice": {
+            "type": "color",
+            "label": "Kesme İz Rengi"
+          },
+          "colors.particles": {
+            "type": "color",
+            "label": "Partikül"
+          },
+          "colors.ui": {
+            "type": "color",
+            "label": "UI Rengi"
+          },
+          "player.lives": {
+            "type": "number",
+            "min": 1,
+            "max": 9,
+            "label": "Can"
+          },
+          "player.perfectRadius": {
+            "type": "number",
+            "min": 6,
+            "max": 40,
+            "label": "Mükemmel Yarıçapı"
+          },
+          "player.chainMultiplier": {
+            "type": "number",
+            "min": 0.1,
+            "max": 1,
+            "step": 0.05,
+            "label": "Zincir Çarpanı"
+          },
+          "gameplay.gravity": {
+            "type": "number",
+            "min": 400,
+            "max": 2400,
+            "step": 50,
+            "label": "Yerçekimi"
+          },
+          "gameplay.wind": {
+            "type": "number",
+            "min": -600,
+            "max": 600,
+            "step": 10,
+            "label": "Rüzgar"
+          },
+          "gameplay.friction": {
+            "type": "number",
+            "min": 0,
+            "max": 0.1,
+            "step": 0.005,
+            "label": "Sürtünme"
+          },
+          "gameplay.sliceLifetimeMs": {
+            "type": "number",
+            "min": 60,
+            "max": 500,
+            "step": 10,
+            "label": "Kesme Ömrü (ms)"
+          },
+          "gameplay.sliceWidth": {
+            "type": "number",
+            "min": 3,
+            "max": 16,
+            "label": "Kesme Kalınlığı"
+          },
+          "gameplay.capsuleRadius": {
+            "type": "number",
+            "min": 10,
+            "max": 24,
+            "label": "Kapsül Yarıçapı"
+          },
+          "enemy.laserPeriodMs": {
+            "type": "number",
+            "min": 800,
+            "max": 3000,
+            "step": 50,
+            "label": "Lazer Periyodu (ms)"
+          },
+          "enemy.magnetStrength": {
+            "type": "number",
+            "min": 0,
+            "max": 1000,
+            "step": 10,
+            "label": "Mıknatıs Gücü"
+          },
+          "obstacle.spikeHeight": {
+            "type": "number",
+            "min": 8,
+            "max": 36,
+            "label": "Çivi Yüksekliği"
+          },
+          "obstacle.movingPlatformSpeed": {
+            "type": "number",
+            "min": 40,
+            "max": 200,
+            "label": "Platform Hızı"
+          },
+          "ui.particles": {
+            "type": "boolean",
+            "label": "Partiküller"
+          },
+          "ui.haptics": {
+            "type": "boolean",
+            "label": "Titreşim"
+          },
+          "ui.guide": {
+            "type": "boolean",
+            "label": "Rehber"
+          },
+          "difficulty": {
+            "type": "select",
+            "options": ["easy", "normal", "hard"],
+            "label": "Zorluk"
+          },
+          "leveling.safeZoneBase": {
+            "type": "number",
+            "min": 40,
+            "max": 120,
+            "label": "Güvenli Taban"
+          },
+          "leveling.safeZoneShrinkPerLevel": {
+            "type": "number",
+            "min": 0,
+            "max": 10,
+            "label": "Seviye Başına Daralma"
+          },
+          "leveling.capsuleCountStart": {
+            "type": "number",
+            "min": 1,
+            "max": 3,
+            "label": "Başlangıç Kapsül"
+          },
+          "leveling.capsuleCountEvery": {
+            "type": "number",
+            "min": 1,
+            "max": 4,
+            "label": "Kaç Seviyede Artar"
+          }
+        }
+      }
+    </script>
+
