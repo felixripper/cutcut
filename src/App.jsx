@@ -63,7 +63,7 @@ function App() {
                       functionName: 'saveScore',
                       args: [score]
                     })
-                  }]}
+                  }]}>
                 >
                   Skoru Kaydet
                 </Transaction>
