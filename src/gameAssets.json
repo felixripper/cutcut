@@ -1,28 +1,12 @@
-      {
-        "sounds": {
-          "slice": "",
-          "land": "",
-          "fail": ""
-        },
-        "_meta": {
-          "sounds.slice": { "label": "Kesme Sesi", "category": "Sound Effects" },
-          "sounds.land": { "label": "İniş Sesi", "category": "Sound Effects" },
-          "sounds.fail": { "label": "Hata Sesi", "category": "Sound Effects" }
-        }
-      }
-    </script>
-
-    <div class="hud" id="hud">
-      <div class="pill" id="score">Score: 0</div>
-      <div class="pill" id="level">Level: 1</div>
-      <div class="pill" id="lives">Lives: 3</div>
-    </div>
-
-    <div class="center-msg" id="center">
-      <div>
-        <h1 style="margin: 0 0 10px; font-size: 28px">Kırp ve Kurtar</h1>
-        <div class="subtitle">İpi kesmek için ekrana bir çizgi çiz</div>
-        <div style="height: 14px"></div>
-        <button class="btn" id="startBtn">Başla</button>
-      </div>
-    </div>
+{
+  "sounds": {
+    "slice": "",
+    "land": "",
+    "fail": ""
+  },
+  "_meta": {
+    "sounds.slice": { "label": "Kesme Sesi", "category": "Sound Effects" },
+    "sounds.land": { "label": "İniş Sesi", "category": "Sound Effects" },
+    "sounds.fail": { "label": "Hata Sesi", "category": "Sound Effects" }
+  }
+}

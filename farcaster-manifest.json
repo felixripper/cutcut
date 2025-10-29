@@ -1,7 +1,17 @@
 {
   "name": "Cut and Save",
-  "description": "Eğlenceli bir kesme oyunu! Base ağında onchain özelliklerle.",
+  "description": "A beautiful onchain miniapp built with OnchainKit. Play, save your score, and mint NFTs on Base.",
   "url": "https://cutcut.vercel.app",
-  "icon": "https://cutcut.vercel.app/icon.png",
-  "frames_url": "https://cutcut.vercel.app"
+  "icon": "https://mintcdn.com/base-a060aa97/-q4fo0uzIfxlH3Wn/images/onchainkit/quickstart.png?fit=max&auto=format&n=-q4fo0uzIfxlH3Wn&q=85&s=6946afe49fc15f2bac953a56a942c114",
+  "framework": "onchainkit",
+  "components": [
+    "Wallet",
+    "Identity",
+    "Transaction",
+    "Mint"
+  ],
+  "chain": "base",
+  "author": "felixripper",
+  "docs": "https://onchainkit.com/",
+  "template": "https://onchainkit.com/quickstart"
 }

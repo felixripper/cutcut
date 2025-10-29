@@ -1,54 +1,39 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import defaultConfig from './gameConfig.json';
+import gameAssets from './gameAssets.json';
+import { initGame } from './game.js';
 
 const Game = ({ onGameOver }) => {
   const canvasRef = useRef(null);
+  const hudRef = useRef(null);
+  const centerRef = useRef(null);
+  const [gameConfig, setGameConfig] = useState(defaultConfig);
 
   useEffect(() => {
-    if (canvasRef.current) {
-      const canvas = canvasRef.current;
-      const ctx = canvas.getContext('2d');
-      canvas.width = 400;
-      canvas.height = 600;
+    // Fetch latest config
+    fetch('/src/gameConfig.json')
+      .then(res => res.json())
+      .then(setGameConfig)
+      .catch(() => setGameConfig(defaultConfig));
+  }, []);
 
-      // Simple game placeholder: Draw a ball and move it
-      let x = 200, y = 300, dx = 2, dy = 2;
-      const radius = 20;
-
-      const draw = () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.beginPath();
-        ctx.arc(x, y, radius, 0, Math.PI * 2);
-        ctx.fillStyle = '#ff4444';
-        ctx.fill();
-        ctx.closePath();
-
-        x += dx;
-        y += dy;
-
-        if (x + radius > canvas.width || x - radius < 0) dx = -dx;
-        if (y + radius > canvas.height || y - radius < 0) dy = -dy;
-
-        requestAnimationFrame(draw);
-      };
-
-      draw();
-
-      // Simulate game over on space key
-      const handleKey = (e) => {
-        if (e.code === 'Space') {
-          onGameOver(150); // Placeholder score
-        }
-      };
-      window.addEventListener('keydown', handleKey);
-
-      return () => window.removeEventListener('keydown', handleKey);
+  useEffect(() => {
+    if (canvasRef.current && hudRef.current && centerRef.current && gameConfig) {
+      initGame(canvasRef.current, gameConfig, gameAssets, onGameOver, hudRef.current, centerRef.current);
     }
-  }, [onGameOver]);
+  }, [onGameOver, gameConfig]);
 
   return (
-    <div id="game-container">
+    <div>
+      <div className="hud" ref={hudRef} id="hud">
+        <div className="pill" id="score">Score: 0</div>
+        <div className="pill" id="level">Level: 1</div>
+        <div className="pill" id="lives">Lives: 3</div>
+      </div>
+      <div className="center-msg" ref={centerRef} id="center">
+        {/* JS ile doldurulacak */}
+      </div>
       <canvas ref={canvasRef} id="game"></canvas>
-      <p>Boşluk tuşuna basarak oyunu bitir (test için)</p>
     </div>
   );
 };
