@@ -1,16 +1,33 @@
 {
-  "name": "Cut and Save",
-  "description": "A beautiful onchain miniapp built with OnchainKit. Play, save your score, and mint NFTs on Base.",
-  "url": "https://cutcut.vercel.app",
-  "icon": "https://mintcdn.com/base-a060aa97/-q4fo0uzIfxlH3Wn/images/onchainkit/quickstart.png?fit=max&auto=format&n=-q4fo0uzIfxlH3Wn&q=85&s=6946afe49fc15f2bac953a56a942c114",
-  "framework": "onchainkit",
-  "components": [
-    "Wallet",
-    "Identity",
-    "Transaction"
-  ],
-  "chain": "base",
-  "author": "felixripper",
-  "docs": "https://onchainkit.com/",
-  "template": "https://onchainkit.com/quickstart"
+  "accountAssociation": {
+    "header": "eyJmaWQiOjQ0MTYxMywidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweEFBODFmMGY0OTVCOEIyRDJCNEY1OEM4NTNBOGM3MzExZjAxYzFFNUMifQ",
+    "payload": "eyJkb21haW4iOiJzbmFrZWJhc2UudmVyY2VsLmFwcCJ9",
+    "signature": "phvP5vda301efC+3JII4QcWFdQBnr4NMJNZX4nOsnuI2G+wX8SQYvnMYI+J8+DFMl/EZq7xG0nGUdc2M1EEBCRw="
+  },
+  "frame": {
+    "name": "Cut Save",
+    "tags": [
+      "games",
+      "social",
+      "entertainment"
+    ],
+    "homeUrl": "https://cutsave.vercel.app",
+    "iconUrl": "https://cutsave.vercel.app/icon.png",
+    "ogTitle": "Cut and Save",
+    "tagline": "Cut the rope and save the ball",
+    "version": "1",
+    "imageUrl": "https://cutsave.vercel.app/image.png",
+    "subtitle": "Cut the rope and save the ball",
+    "webhookUrl": "https://cutsave.vercel.app/api/webhook",
+    "buttonTitle": "Cut Now",
+    "description": "Cut the rope and save the ball",
+    "ogDescription": "Cut the rope and save the ball",
+    "splashImageUrl": "https://cutsave.vercel.app/splash.png",
+    "primaryCategory": "games",
+    "splashBackgroundColor": "#0052FF"
+  },
+ "baseBuilder": {
+    "ownerAddress": "0x4caA73f2D477B38795e8b6f9A7FB4ed493882684"
+  }
+}
 }
