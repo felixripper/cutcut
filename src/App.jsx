@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { OnchainKitProvider } from '@coinbase/onchainkit';
 import { base } from 'viem/chains';
-import { useWallet } from '@coinbase/onchainkit';
+import { Wallet } from '@coinbase/onchainkit/wallet';
 import { Identity } from '@coinbase/onchainkit/identity';
 import { Transaction } from '@coinbase/onchainkit/transaction';
 import Game from './Game';
@@ -27,24 +27,17 @@ function App() {
   };
   const backToMenu = () => setGameState('menu');
 
-  const MenuScreen = () => {
-    const { address, isConnected } = useWallet();
-    return (
-      <div className="App">
-        <h1>Cut and Save</h1>
-        <p>Kes ve Kurtar: Eğlenceli bir kesme oyunu! Base ağında onchain özelliklerle.</p>
-        <Wallet />
-        <Identity />
-        {isConnected ? (
-          <button className="start-btn" onClick={startGame}>
-            Oyunu Başlat
-          </button>
-        ) : (
-          <p>Cüzdan bağlayarak oyunu oynayabilirsin!</p>
-        )}
-      </div>
-    );
-  };
+  const MenuScreen = () => (
+    <div className="App">
+      <h1>Cut and Save</h1>
+      <p>Kes ve Kurtar: Eğlenceli bir kesme oyunu! Base ağında onchain özelliklerle.</p>
+      <Wallet />
+      <Identity />
+      <button className="start-btn" onClick={startGame}>
+        Oyunu Başlat
+      </button>
+    </div>
+  );
 
   return (
     <BrowserRouter>
