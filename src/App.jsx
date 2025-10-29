@@ -16,9 +16,14 @@ function App() {
   const [score, setScore] = useState(0);
 
   useEffect(() => {
-    if (window.sdk && window.sdk.actions) {
-      window.sdk.actions.ready();
-    }
+    const callReady = () => {
+      if (window.sdk && window.sdk.actions) {
+        window.sdk.actions.ready();
+      } else {
+        setTimeout(callReady, 100);
+      }
+    };
+    callReady();
   }, []);
 
   const startGame = () => setGameState('playing');
