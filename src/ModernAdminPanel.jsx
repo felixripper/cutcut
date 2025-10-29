@@ -4,15 +4,18 @@ import defaultConfig from './gameConfig.json';
 
 function ModernAdminPanel() {
   const [tab, setTab] = useState(0);
-  const [config, setConfig] = useState(defaultConfig);
+  const [config, setConfig] = useState(() => {
+    const saved = localStorage.getItem('gameConfig');
+    return saved ? JSON.parse(saved) : defaultConfig;
+  });
   const [message, setMessage] = useState('');
 
   useEffect(() => {
     // Load current config
-    fetch('/src/gameConfig.json')
-      .then(res => res.json())
-      .then(setConfig)
-      .catch(() => setConfig(defaultConfig));
+    const saved = localStorage.getItem('gameConfig');
+    if (saved) {
+      setConfig(JSON.parse(saved));
+    }
   }, []);
 
   // Ayarları güncelle
@@ -71,22 +74,9 @@ function ModernAdminPanel() {
   );
 
   // Kaydet
-  const handleSave = async () => {
-    try {
-      const response = await fetch('/api/save-config', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(config)
-      });
-      const result = await response.json();
-      if (result.success) {
-        setMessage('Ayarlar dosyaya kaydedildi ve kalıcı!');
-      } else {
-        setMessage('Hata: ' + result.message);
-      }
-    } catch (error) {
-      setMessage('Hata: ' + error.message);
-    }
+  const handleSave = () => {
+    localStorage.setItem('gameConfig', JSON.stringify(config));
+    setMessage('Ayarlar kaydedildi ve kalıcı!');
   };
 
   return (

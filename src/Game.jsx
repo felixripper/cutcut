@@ -7,21 +7,17 @@ const Game = ({ onGameOver }) => {
   const canvasRef = useRef(null);
   const hudRef = useRef(null);
   const centerRef = useRef(null);
-  const [gameConfig, setGameConfig] = useState(defaultConfig);
 
-  useEffect(() => {
-    // Fetch latest config
-    fetch('/src/gameConfig.json')
-      .then(res => res.json())
-      .then(setGameConfig)
-      .catch(() => setGameConfig(defaultConfig));
-  }, []);
+  const gameConfig = (() => {
+    const saved = localStorage.getItem('gameConfig');
+    return saved ? JSON.parse(saved) : defaultConfig;
+  })();
 
   useEffect(() => {
     if (canvasRef.current && hudRef.current && centerRef.current && gameConfig) {
       initGame(canvasRef.current, gameConfig, gameAssets, onGameOver, hudRef.current, centerRef.current);
     }
-  }, [onGameOver, gameConfig]);
+  }, [onGameOver]);
 
   return (
     <div>
