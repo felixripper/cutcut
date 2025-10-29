@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { OnchainKitProvider } from '@coinbase/onchainkit';
 import { base } from 'viem/chains';
-import { Wallet } from '@coinbase/onchainkit/wallet';
+import { Wallet, useWallet } from '@coinbase/onchainkit/wallet';
 import { Identity } from '@coinbase/onchainkit/identity';
 import { Transaction } from '@coinbase/onchainkit/transaction';
 import Game from './Game';
@@ -27,20 +27,46 @@ function App() {
   };
   const backToMenu = () => setGameState('menu');
 
+  const MenuScreen = () => {
+    const { address, isConnected } = useWallet();
+    return (
+      <div className="App">
+        <h1>Cut and Save</h1>
+        <p>Kes ve Kurtar: Eğlenceli bir kesme oyunu! Base ağında onchain özelliklerle.</p>
+        <Wallet />
+        <Identity />
+        {isConnected ? (
+          <button className="start-btn" onClick={startGame}>
+            Oyunu Başlat
+          </button>
+        ) : (
+          <p>Cüzdan bağlayarak oyunu oynayabilirsin!</p>
+        )}
+      </div>
+    );
+  };
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={
           <OnchainKitProvider apiKey={import.meta.env.VITE_CDP_API_KEY} chain={base}>
-            <div className="App">
-              <h1>Cut and Save</h1>
-              <p>Kes ve Kurtar: Eğlenceli bir kesme oyunu! Base ağında onchain özelliklerle.</p>
-              <Wallet />
-              <Identity />
-              <button className="start-btn" onClick={startGame}>
-                Oyunu Başlat
-              </button>
-            </div>
+            {gameState === 'menu' && <MenuScreen />}
+            {gameState === 'playing' && <Game onGameOver={endGame} />}
+            {gameState === 'gameover' && (
+              <div className="App">
+                <h2>Oyun Bitti! Skor: {score}</h2>
+                <Transaction
+                  address="0x4caA73f2D477B38795e8b6f9A7FB4ed493882684"
+                  abi={[{"inputs":[{"internalType":"uint256","name":"score","type":"uint256"}],"name":"saveScore","outputs":[],"stateMutability":"nonpayable","type":"function"}]}
+                  functionName="saveScore"
+                  args={[score]}
+                >
+                  Skoru Kaydet
+                </Transaction>
+                <button onClick={backToMenu}>Tekrar Oyna</button>
+              </div>
+            )}
           </OnchainKitProvider>
         } />
         <Route path="/admin" element={<AdminRoute />} />
