@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { OnchainKitProvider } from '@coinbase/onchainkit';
 import { base } from 'viem/chains';
 import { Wallet } from '@coinbase/onchainkit/wallet';
@@ -13,6 +13,12 @@ import AdminRoute from './routes/AdminRoute';
 function App() {
   const [gameState, setGameState] = useState('menu'); // 'menu', 'playing', 'gameover'
   const [score, setScore] = useState(0);
+
+  useEffect(() => {
+    if (window.sdk && window.sdk.actions) {
+      window.sdk.actions.ready();
+    }
+  }, []);
 
   const startGame = () => setGameState('playing');
   const endGame = (finalScore) => {
