@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { OnchainKitProvider } from '@coinbase/onchainkit';
 import { base } from 'viem/chains';
-import { Wallet, useWallet } from '@coinbase/onchainkit/wallet';
+import { useWallet } from '@coinbase/onchainkit';
 import { Identity } from '@coinbase/onchainkit/identity';
 import { Transaction } from '@coinbase/onchainkit/transaction';
 import Game from './Game';
