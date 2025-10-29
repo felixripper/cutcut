@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-const Game = () => {
+const Game = ({ onGameOver }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -16,8 +16,16 @@ const Game = () => {
       ctx.fillStyle = '#fff';
       ctx.font = '30px Arial';
       ctx.fillText('Oyun Yakında!', 150, 300);
+
+      // Simulate game over on click
+      const handleClick = () => {
+        onGameOver(100); // Placeholder score
+      };
+      canvas.addEventListener('click', handleClick);
+
+      return () => canvas.removeEventListener('click', handleClick);
     }
-  }, []);
+  }, [onGameOver]);
 
   return (
     <div id="game-container">
