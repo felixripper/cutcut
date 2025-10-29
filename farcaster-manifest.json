@@ -1,8 +1,8 @@
 {
   "accountAssociation": {
-    "header": "eyJmaWQiOjQ0MTYxMywidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweEFBODFmMGY0OTVCOEIyRDJCNEY1OEM4NTNBOGM3MzExZjAxYzFFNUMifQ",
-    "payload": "eyJkb21haW4iOiJzbmFrZWJhc2UudmVyY2VsLmFwcCJ9",
-    "signature": "phvP5vda301efC+3JII4QcWFdQBnr4NMJNZX4nOsnuI2G+wX8SQYvnMYI+J8+DFMl/EZq7xG0nGUdc2M1EEBCRw="
+    "header": "eyJmaWQiOjQ0MTYxMywidHlwZSI6ImF1dGgiLCJrZXkiOiIweEYwZTdiY0U1QmNiNzlENjgxMGE4MzU3NDY3MjYzM2E2ODk4MUU2OUIifQ",
+    "payload": "eyJkb21haW4iOiJjdXRzYXZlLnZlcmNlbC5hcHAifQ",
+    "signature": "nH6JZ8vr8LkItt0+/v9N7w9ttHKyaa93hEzGVeHEMrlg1miLvnnPFKw95afa+v/dlBwAE4KwsENOOqtCRzOK2xs="
   },
   "frame": {
     "name": "Cut Save",
