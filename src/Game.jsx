@@ -10,26 +10,45 @@ const Game = ({ onGameOver }) => {
       canvas.width = 400;
       canvas.height = 600;
 
-      // Placeholder: Simple draw
-      ctx.fillStyle = '#0000b5';
-      ctx.fillRect(0, 0, 400, 600);
-      ctx.fillStyle = '#fff';
-      ctx.font = '30px Arial';
-      ctx.fillText('Oyun Yakında!', 150, 300);
+      // Simple game placeholder: Draw a ball and move it
+      let x = 200, y = 300, dx = 2, dy = 2;
+      const radius = 20;
 
-      // Simulate game over on click
-      const handleClick = () => {
-        onGameOver(100); // Placeholder score
+      const draw = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fillStyle = '#ff4444';
+        ctx.fill();
+        ctx.closePath();
+
+        x += dx;
+        y += dy;
+
+        if (x + radius > canvas.width || x - radius < 0) dx = -dx;
+        if (y + radius > canvas.height || y - radius < 0) dy = -dy;
+
+        requestAnimationFrame(draw);
       };
-      canvas.addEventListener('click', handleClick);
 
-      return () => canvas.removeEventListener('click', handleClick);
+      draw();
+
+      // Simulate game over on space key
+      const handleKey = (e) => {
+        if (e.code === 'Space') {
+          onGameOver(150); // Placeholder score
+        }
+      };
+      window.addEventListener('keydown', handleKey);
+
+      return () => window.removeEventListener('keydown', handleKey);
     }
   }, [onGameOver]);
 
   return (
     <div id="game-container">
       <canvas ref={canvasRef} id="game"></canvas>
+      <p>Boşluk tuşuna basarak oyunu bitir (test için)</p>
     </div>
   );
 };
