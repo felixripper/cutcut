@@ -4,7 +4,7 @@
   "outputDirectory": "dist",
   "redirects": [
     {
-      "source": "./.well-known/farcaster.json",
+      "source": "/.well-known/farcaster.json",
       "destination": "https://raw.githubusercontent.com/felixripper/cutcut/main/public/.well-known/farcaster.json",
       "permanent": false
     }
