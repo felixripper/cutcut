@@ -2,17 +2,13 @@
   "framework": "vite",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [
+  "redirects": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "./.well-known/farcaster.json",
+      "destination": "https://raw.githubusercontent.com/felixripper/cutcut/main/public/.well-known/farcaster.json",
+      "permanent": false
     }
-  ]
-}
-{
-  "framework": "vite",
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
