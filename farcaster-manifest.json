@@ -1,12 +1,12 @@
 {
   "frame": {
-    "name": "Cut and Save",
+   "name": "Cut Save",
     "version": "1",
-    "iconUrl": "https://raw.githubusercontent.com/felixripper/cutcut/main/public/icon.png",
+    "iconUrl": "https://github.com/felixripper/cutcut/blob/main/dist/assets/screenshot.png",
     "homeUrl": "https://cutsave.vercel.app",
-    "imageUrl": "https://raw.githubusercontent.com/felixripper/cutcut/main/public/image.png",
+    "imageUrl": "https://github.com/felixripper/cutcut/blob/main/dist/assets/logo.png",
     "buttonTitle": "Cut Now",
-    "splashImageUrl": "https://raw.githubusercontent.com/felixripper/cutcut/main/public/splash.png",
+    "splashImageUrl": "https://github.com/felixripper/cutcut/blob/main/dist/assets/logo.png",
     "splashBackgroundColor": "#0052FF",
     "webhookUrl": "https://cutsave.vercel.app/api/webhook",
     "subtitle": "Cut the rope and save the ball",
@@ -26,8 +26,11 @@
     "payload": "eyJkb21haW4iOiJjdXRzYXZlLnZlcmNlbC5hcHAifQ",
     "signature": "nH6JZ8vr8LkItt0+/v9N7w9ttHKyaa93hEzGVeHEMrlg1miLvnnPFKw95afa+v/dlBwAE4KwsENOOqtCRzOK2xs="
   },
+
+  "miniapp": { ... },
   "baseBuilder": {
     "ownerAddress": "0x4caA73f2D477B38795e8b6f9A7FB4ed493882684"
   }
+
 
 }
