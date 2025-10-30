@@ -36,7 +36,7 @@
     "manifestVersion": "1",
     "startUrl": "https://cutsave.vercel.app",
     "startPath": "/",
-    "frameType": "frame",
+    "frameType": "iframe",
     "frameUrl": "https://cutsave.vercel.app"
   },
   "baseBuilder": {
