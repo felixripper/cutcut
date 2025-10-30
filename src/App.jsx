@@ -17,9 +17,12 @@ function App() {
 
   useEffect(() => {
     const callReady = () => {
+      console.log('Checking for SDK:', window.sdk);
       if (window.sdk && window.sdk.actions) {
+        console.log('SDK found, calling ready()');
         window.sdk.actions.ready();
       } else {
+        console.log('SDK not found, retrying...');
         setTimeout(callReady, 100);
       }
     };
