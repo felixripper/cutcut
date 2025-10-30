@@ -26,7 +26,8 @@ function App() {
         setTimeout(callReady, 100);
       }
     };
-    callReady();
+    // Wait 3 seconds for app to load before starting to check for SDK
+    setTimeout(callReady, 3000);
   }, []);
 
   const startGame = () => setGameState('playing');
