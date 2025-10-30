@@ -2,13 +2,6 @@
   "framework": "vite",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "redirects": [
-    {
-      "source": "/.well-known/farcaster.json",
-      "destination": "https://api.farcaster.xyz/miniapps/hosted-manifest/019a321f-552b-cec7-ad69-92166f611f40",
-      "permanent": false
-    }
-  ],
   "rewrites": [
     {
       "source": "/(.*)",
