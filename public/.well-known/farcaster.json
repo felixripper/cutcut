@@ -32,6 +32,13 @@
     "signature": "nH6JZ8vr8LkItt0+/v9N7w9ttHKyaa93hEzGVeHEMrlg1miLvnnPFKw95afa+v/dlBwAE4KwsENOOqtCRzOK2xs="
   },
 
+  "miniapp": {
+    "manifestVersion": "1",
+    "startUrl": "https://cutsave.vercel.app",
+    "startPath": "/",
+    "frameType": "frame",
+    "frameUrl": "https://cutsave.vercel.app"
+  },
   "baseBuilder": {
     "ownerAddress": "0x4caA73f2D477B38795e8b6f9A7FB4ed493882684"
   }
