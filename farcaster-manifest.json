@@ -2,11 +2,11 @@
   "frame": {
     "name": "Cut Save",
     "version": "1",
-    "iconUrl": "https://cutsave.vercel.app/icon.png",
+    "iconUrl": "https://raw.githubusercontent.com/felixripper/cutcut/main/dist/assets/screenshot.png",
     "homeUrl": "https://cutsave.vercel.app",
-    "imageUrl": "https://github.com/felixripper/cutcut/blob/main/dist/assets/logo.png",
+    "imageUrl": "https://raw.githubusercontent.com/felixripper/cutcut/main/dist/assets/logo.png",
     "buttonTitle": "Cut Now",
-    "splashImageUrl": "https://github.com/felixripper/cutcut/blob/main/dist/assets/logo.png",
+    "splashImageUrl": "https://raw.githubusercontent.com/felixripper/cutcut/main/dist/assets/logo.png",
     "splashBackgroundColor": "#0052FF",
     "webhookUrl": "https://cutsave.vercel.app/api/webhook",
     "subtitle": "Cut the rope and save the ball",
@@ -17,13 +17,13 @@
       "social",
       "entertainment"
     ],
-    "heroImageUrl": "https://github.com/felixripper/cutcut/blob/main/dist/assets/favicon.png",
+    "heroImageUrl": "https://raw.githubusercontent.com/felixripper/cutcut/main/dist/assets/favicon.png",
     "tagline": "Cut the rope and save the ball",
-    "ogTitle": "Cut Now",
+    "ogTitle": "Cut and Save",
     "ogDescription": "Cut the rope and save the ball",
-    "ogImageUrl": "https://github.com/felixripper/cutcut/blob/main/dist/assets/logo.png",
+    "ogImageUrl": "https://raw.githubusercontent.com/felixripper/cutcut/main/dist/assets/logo.png",
     "screenshotUrls": [
-      "https://github.com/felixripper/cutcut/blob/main/dist/assets/screenshot-portrait.png"
+      "https://raw.githubusercontent.com/felixripper/cutcut/main/dist/assets/screenshot-portrait.png"
     ]
   },
   "accountAssociation": {
@@ -32,7 +32,13 @@
     "signature": "nH6JZ8vr8LkItt0+/v9N7w9ttHKyaa93hEzGVeHEMrlg1miLvnnPFKw95afa+v/dlBwAE4KwsENOOqtCRzOK2xs="
   },
 
-  "miniapp": { ... },
+  "miniapp": {
+    "manifestVersion": "1",
+    "startUrl": "https://cutsave.vercel.app",
+    "startPath": "/",
+    "frameType": "iframe",
+    "frameUrl": "https://cutsave.vercel.app"
+  },
   "baseBuilder": {
     "ownerAddress": "0x4caA73f2D477B38795e8b6f9A7FB4ed493882684"
   }
