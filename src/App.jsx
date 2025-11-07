@@ -7,14 +7,16 @@ import WalletConnect from './components/WalletConnect';
 import NFTCheck from './components/NFTCheck';
 import MainApp from './components/MainApp';
 
+const connectors = [
+  metaMask(),
+  coinbaseWallet(),
+  walletConnect({ projectId: '25713046a3b7af4df595c1131b6819ed' }),
+  injected(),
+];
+
 const config = createConfig({
   chains: [base],
-  connectors: [
-    metaMask(),
-    coinbaseWallet(),
-    walletConnect({ projectId: '25713046a3b7af4df595c1131b6819ed' }),
-    injected(),
-  ],
+  connectors,
   transports: {
     [base.id]: http(),
   },
@@ -29,7 +31,7 @@ function AppContent() {
   return (
     <div className="App">
       {!isConnected ? (
-        <WalletConnect />
+        <WalletConnect connectors={connectors} />
       ) : !hasNFT ? (
         <NFTCheck onVerified={() => setHasNFT(true)} />
       ) : (
