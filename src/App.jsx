@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { OnchainKitProvider } from '@coinbase/onchainkit';
 import { base } from 'viem/chains';
 import { WagmiProvider, createConfig, http, useAccount } from 'wagmi';
-import { metaMask, coinbaseWallet, walletConnect } from '@wagmi/connectors';
+import { metaMask, coinbaseWallet, walletConnect, injected } from '@wagmi/connectors';
 import WalletConnect from './components/WalletConnect';
 import NFTCheck from './components/NFTCheck';
 import MainApp from './components/MainApp';
@@ -12,7 +12,8 @@ const config = createConfig({
   connectors: [
     metaMask(),
     coinbaseWallet(),
-    walletConnect({ projectId: 'your_project_id' }), // WalletConnect için project ID gerekli
+    walletConnect({ projectId: 'your_project_id' }),
+    injected(),
   ],
   transports: {
     [base.id]: http(),
