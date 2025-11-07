@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { OnchainKitProvider } from '@coinbase/onchainkit';
 import { base } from 'viem/chains';
-import { WagmiProvider, createConfig, http } from 'wagmi';
+import { WagmiProvider, createConfig, http, useAccount } from 'wagmi';
 import WalletConnect from './components/WalletConnect';
 import NFTCheck from './components/NFTCheck';
 import MainApp from './components/MainApp';
@@ -13,25 +13,33 @@ const config = createConfig({
   },
 });
 
-function App() {
-  const [isConnected, setIsConnected] = useState(false);
+function AppContent() {
+  const { address } = useAccount();
   const [hasNFT, setHasNFT] = useState(false);
 
+  const isConnected = !!address;
+
+  return (
+    <div className="App">
+      {!isConnected ? (
+        <WalletConnect />
+      ) : !hasNFT ? (
+        <NFTCheck onVerified={() => setHasNFT(true)} />
+      ) : (
+        <MainApp />
+      )}
+    </div>
+  );
+}
+
+function App() {
   return (
     <WagmiProvider config={config}>
       <OnchainKitProvider
         apiKey={process.env.REACT_APP_ONCHAINKIT_API_KEY}
         chain={base}
       >
-        <div className="App">
-          {!isConnected ? (
-            <WalletConnect onConnect={() => setIsConnected(true)} />
-          ) : !hasNFT ? (
-            <NFTCheck onVerified={() => setHasNFT(true)} />
-          ) : (
-            <MainApp />
-          )}
-        </div>
+        <AppContent />
       </OnchainKitProvider>
     </WagmiProvider>
   );
