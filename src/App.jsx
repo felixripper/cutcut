@@ -12,7 +12,7 @@ const config = createConfig({
   connectors: [
     metaMask(),
     coinbaseWallet(),
-    walletConnect({ projectId: 'your_project_id' }),
+    walletConnect({ projectId: '25713046a3b7af4df595c1131b6819ed' }),
     injected(),
   ],
   transports: {
