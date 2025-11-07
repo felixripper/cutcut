@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { OnchainKitProvider } from '@coinbase/onchainkit';
 import { base } from 'viem/chains';
-import { WagmiProvider, createConfig, http } from 'wagmi';
+import { WagmiProvider, createConfig, http, useAccount } from 'wagmi';
 import { metaMask, coinbaseWallet, walletConnect } from '@wagmi/connectors';
 import WalletConnect from './components/WalletConnect';
 import NFTCheck from './components/NFTCheck';
