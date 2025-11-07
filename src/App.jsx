@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import { OnchainKitProvider } from '@coinbase/onchainkit';
 import { base } from 'viem/chains';
-import { WagmiProvider, createConfig, http, useAccount } from 'wagmi';
+import { WagmiProvider, createConfig, http, metaMask, coinbaseWallet, walletConnect } from 'wagmi';
 import WalletConnect from './components/WalletConnect';
 import NFTCheck from './components/NFTCheck';
 import MainApp from './components/MainApp';
 
 const config = createConfig({
   chains: [base],
+  connectors: [
+    metaMask(),
+    coinbaseWallet(),
+    walletConnect({ projectId: 'your_project_id' }), // WalletConnect için project ID gerekli
+  ],
   transports: {
     [base.id]: http(),
   },
