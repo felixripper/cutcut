@@ -6,8 +6,7 @@ const WalletConnect = ({ onConnect }) => {
     <div style={{ textAlign: 'center', padding: '50px' }}>
       <h1>Elite Membership Platform</h1>
       <p>NFT sahipliğinizi doğrulayarak elit topluluğumuza katılın.</p>
-      <ConnectWallet />
-      {/* onConnect callback'ini wallet bağlantısı sonrası çağır */}
+      <ConnectWallet onConnect={onConnect} />
     </div>
   );
 };
