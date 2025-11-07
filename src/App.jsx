@@ -29,13 +29,8 @@ function AppContent() {
 
   return (
     <div className="App">
-      {!isConnected ? (
-        <WalletConnect connectors={connectors} />
-      ) : !hasNFT ? (
-        <NFTCheck onVerified={() => setHasNFT(true)} />
-      ) : (
-        <MainApp />
-      )}
+      {/* Temporarily disabled wallet integration to show content */}
+      <MainApp />
     </div>
   );
 }
