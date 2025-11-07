@@ -8,7 +8,7 @@ const NFTCheck = ({ onVerified }) => {
 
   // Örnek NFT contract adresi (gerçek bir adresle değiştir)
   const nftContractAddress = '0xBa5e05cb26b78eDa3A2f8e3b3814726305dcAc83';
-  const { data: balance } = useReadContract({
+  const { data: balance, error, isLoading } = useReadContract({
     address: nftContractAddress,
     abi: [
       {
@@ -24,23 +24,32 @@ const NFTCheck = ({ onVerified }) => {
     chainId: base.id,
   });
 
+  console.log('Address:', address);
+  console.log('Balance:', balance);
+  console.log('Error:', error);
+  console.log('IsLoading:', isLoading);
+
   React.useEffect(() => {
-    if (balance !== undefined) {
+    if (!isLoading && balance !== undefined) {
       setIsChecking(false);
       if (balance > 0) {
         onVerified();
       }
     }
-  }, [balance, onVerified]);
+  }, [balance, isLoading, onVerified]);
 
   if (isChecking) {
     return <div>Checking NFT ownership...</div>;
   }
 
+  if (error) {
+    return <div>Error checking NFT: {error.message}</div>;
+  }
+
   return (
     <div style={{ textAlign: 'center', padding: '50px' }}>
       <h2>Access Denied</h2>
-      <p>You do not own the required NFT for membership.</p>
+      <p>You do not own the required NFT. Balance: {balance}</p>
     </div>
   );
 };
